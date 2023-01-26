@@ -4,6 +4,7 @@
 import sys
 import numpy as np
 
+print('hi')
 # import our Random class from python/Random.py file
 sys.path.append(".")
 from python.Random import Random
