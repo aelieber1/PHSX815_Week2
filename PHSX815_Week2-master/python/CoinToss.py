@@ -4,10 +4,10 @@
 import sys
 import numpy as np
 
-print('hi')
 # import our Random class from python/Random.py file
+# Needed to update this becuase Random is within the Random folder, not python
 sys.path.append(".")
-from python.Random import Random
+from Random import Random
 
 # main function for our coin toss Python code
 if __name__ == "__main__":
@@ -24,10 +24,10 @@ if __name__ == "__main__":
     prob = 0.5
 
     # default number of coin tosses (per experiment)
-    Ntoss = 1
+    Ntoss = 4
 
     # default number of experiments
-    Nexp = 1
+    Nexp = 5
 
     # output file defaults
     doOutputFile = False
