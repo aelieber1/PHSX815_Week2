@@ -112,15 +112,27 @@ if __name__ == "__main__":
     arr = random.dist_categorical(thetas, n_samples)
     print(arr)
     
+    # Adapting code from Week 1 work below to take this data that has now been randomly sampled according to a categorical distribution
+    
     # create histogram of our data
-    n, bins, patches = plt.hist(arr, 50, density=True, facecolor='g', alpha=0.75)
+    n, bins, patches = plt.hist(arr, bins=50, density=True, color='lightblue', ec='C0', orientation='vertical', alpha=0.75)
 
     # plot formating options
     title = 'Categorical Random Sampling for: ' + str(n_samples) + " 4-sided Dice Rolls"
-    plt.xlabel('x')
-    plt.ylabel('Probability')
-    plt.title(title)
+    plt.xlabel('x', color='C0', fontsize=12)
+    plt.ylabel('Probability', color='C0', fontsize=12)
+    plt.title(title, color='C0', fontsize=15)
     plt.grid(True)
 
     # show figure (program only ends once closed
+    plt.show()
+    
+    plt.hist(arr, bins=50, density=True, color='lightblue', ec='C0', orientation='vertical', alpha=0.75)
+
+    # Formatting the plot
+    plt.xlabel('x', color='C0', fontsize=15)
+    plt.ylabel('Probability', color='C0', fontsize=15)
+    plt.title('Uniform Random Number', color='C0', fontsize=10)
+    plt.grid(True)
+    
     plt.show()
