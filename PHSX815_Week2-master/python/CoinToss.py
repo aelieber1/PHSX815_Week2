@@ -24,10 +24,10 @@ if __name__ == "__main__":
     prob = 0.5
 
     # default number of coin tosses (per experiment)
-    Ntoss = 4
+    Ntoss = 10
 
     # default number of experiments
-    Nexp = 5
+    Nexp = 10
 
     # output file defaults
     doOutputFile = False
@@ -64,11 +64,15 @@ if __name__ == "__main__":
         for e in range(0,Nexp):
             for t in range(0,Ntoss):
                 outfile.write(str(random.Bernoulli(prob))+" ")
+                #outfile.write(str(random.Exponential(prob))+" ")
             outfile.write(" \n")
         outfile.close()
     else:
         for e in range(0,Nexp):
             for t in range(0,Ntoss):
+                # Calls a particular method of random sampling
+                # Examples are kept here for testing, but new method includes attempts at categorical and multinomial
                 print(random.Bernoulli(prob), end=' ')
+                #print(random.Exponential(prob), end=' ')
             print(" ")
    

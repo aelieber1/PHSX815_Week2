@@ -60,7 +60,7 @@ class Random:
       if beta <= 0.:
         beta = 1.
 
-      R = self.rand();
+      R = self.rand()
 
       while R <= 0.:
         R = self.rand()
@@ -68,3 +68,21 @@ class Random:
       X = -math.log(R)/beta
 
       return X
+    
+    # Additional distribution for Homework #3
+    # First I tried the Categorical distribution as you suggested:
+    def dist_categorical(self, thetas, n_samples):
+        n_classes = len(thetas)
+        
+        # sets the categorical boundaries
+        thetas_cumsum = np.cumsum(thetas)
+        
+        # samples a random dataset
+        dataset_x = np.random.rand(n_samples)
+        
+        # uses np.select to categorize the data to transform from data sampled from a uniform distribution to data sampled from a categorical
+        lower_than_limits = [dataset_x <= limit for limit in thetas_cumsum]
+        class_matrix = [i * np.ones(n_samples) for i in range(n_classes)]
+        dataset_w = np.select(condlist=lower_than_limits, choicelist=class_matrix)
+        
+        return dataset_w
